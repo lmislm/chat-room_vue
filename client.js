@@ -28,6 +28,11 @@ new Vue({
                     }
                     console.log(this.connectUsers);
                 }.bind(this));
+            var infoMsg = {
+                "type":"info",
+                "msg":"用户  " + socketId + "  加入了聊天"
+            }
+            this.messages.push(infoMsg);
         }.bind(this));
         //如果servers发出聊天消息chat.message，更新消息数组
         socket.on('chat.message',function (message) {
