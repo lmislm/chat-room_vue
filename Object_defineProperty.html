@@ -13,11 +13,21 @@
         pwd:"123"
     };
     Object.defineProperty(obj,"userName",{
-        value:"java"
+//        value:"java"
+        set:function (newValue) {
+            console.log("---set init") // 给userName重新赋值自动触发set init
+            //触发之后
+            document.getElementById("uName").innerText = newValue;
+        },
+        get:function () {
+            console.log("----get init")
+        }
     });
     document.getElementById("userName").addEventListener("keyup",function () {
-        document.getElementById("uName").innerText = event.target.value;
+        obj.userName = event.target.value;
     })
 </script>
 </body>
 </html>
+
+
