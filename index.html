@@ -27,21 +27,23 @@
                 </div>
                 <div class="panel-body">
                     <ul class="chat" id="messages">
-                        <li class="left clearfix">
-                            <div class="info">
-                                用户1加入
+                        <li v-for="message in messages" class="left clearfix">
+                            <div v-if="message.type == 'info'" class="info">
+                                {{ message.msg }}
                             </div>
-                            <div>
+                            <div v-if="message.type == 'chat'">
+                                <!--要显示的所有用户聊天信息-->
                                 <span class="chat-img pull-left">
                                     <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle">
                                 </span>
                                 <div class="chat-body clearfix">
                                     <div class="header">
-                                        <!--<strong class="primary-font"></strong>-->
+                                        <strong class="primary-font">{{ message.user }}</strong>
                                         <small class="pull-right text-muted">
-                                            <span class=" glyphicon glyphicon-time"></span>&nbsp;2017.12.31
+                                            <span class=" glyphicon glyphicon-time"></span>&nbsp;{{ message.timestamp }}
                                         </small>
                                     </div>
+                                    <p>{{ message.text }}</p>
                                 </div>
                             </div>
                          </li>
@@ -49,15 +51,15 @@
                 </div>
 
                 <div class="panel-footer">
-                    <form action="#">
-                        <input type="text" class="form-control input-lg" placeholder="输入聊天消息">
+                    <form @submit.prevent="send">
+                        <input v-model="message.text" type="text" class="form-control input-lg" placeholder="输入聊天消息">
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <script  src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
     <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
     <script src="client.js"></script>

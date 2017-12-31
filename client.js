@@ -29,6 +29,11 @@ new Vue({
                     console.log(this.connectUsers);
                 }.bind(this));
         }.bind(this));
+        //如果servers发出聊天消息chat.message，更新消息数组
+        socket.on('chat.message',function (message) {
+            this.messages.push(message);
+        }.bind(this))
+
         //如果server broadcasts 'user left'，从已连接数组中删除用户
         socket.on('user left',function (socketId) {
             var index = this.connectUsers.indexOf(socketId);  //很重要，同一窗口的用户刷新人数不变
@@ -37,8 +42,16 @@ new Vue({
             }
         }.bind(this));
     },
-    method:{
+    methods:{
         send:function () {
+            this.message.type = "chat";
+            this.message.user = socket.id;
+            this.message.timestamp = "Today";
+            socket.emit('chat.message',this.message);
+            this.message.type = "";
+            this.message.user = "";
+            this.message.text = "";
+            this.message.timestamp = "";
 
         },
         userIsTyping:function (username) {

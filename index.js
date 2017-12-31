@@ -26,6 +26,11 @@ io.on('connection',function (socket) {
 
     //告诉所有的clients有人连接了
     io.emit('user joined',socket.id)
+    //client 发送 ’chat messages' 时间给server
+    socket.on('chat.message',function (message) {
+        //发出时间到所有clients连接
+        io.emit('chat.message',message);
+    });
 
     socket.on('disconnect',function () {
         console.log('用户离开' + socket.id);
