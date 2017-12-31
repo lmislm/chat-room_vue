@@ -4,7 +4,7 @@
 .userlist{
     overflow-y: scroll;
     height: 800px;
-    boder: 1px solid dimgray;
+    border: 1px solid dimgray;
 }
 .info{
     font-size: 12px;
@@ -23,7 +23,7 @@
 .chat li{
     margin-bottom: 10px;
     padding-bottom: 5px;
-    boder-bottom: 1px dotted #B3A9A9
+    border-bottom: 1px dotted #B3A9A9
 }
 .chat li.left .chat-body{
     margin-left: 60px;
