@@ -4,32 +4,52 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="col-md-2">
+    <div class="col-md-2 userlist">
         <div class="panel-heading">
             <span class="glyphicon glyphicon-user"></span>在线（5）
         </div>
-        <ul>
+        <ul class="chat">
             <li>user1</li>
             <li>user2</li>
         </ul>
     </div>
     <div class="col-md-10">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                一起聊天吧
-            </div>
-            <div class="panel-body">
-                <ul>
-                    <li>message</li>
-                    <li>message2</li>
-                </ul>
-            </div>
-            <div class="panel-footer">
-                <form action="#">
-                    <input type="text" class="form-control input-lg" placeholder="输入聊天消息">
-                </form>
+        <div id="livechat-container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                   <span class="glyphicon glyphicon-comment"></span>&nbsp; 来聊天吧
+                </div>
+                <div class="panel-body">
+                    <ul class="chat" id="messages">
+                        <li class="left clearfix">
+                            <div class="info">
+                                用户1加入
+                            </div>
+                            <div>
+                                <span class="chat-img pull-left">
+                                    <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle">
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <!--<strong class="primary-font"></strong>-->
+                                        <small class="pull-right text-muted">
+                                            <span class=" glyphicon glyphicon-time"></span>&nbsp;2017.12.31
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                         </li>
+                    </ul>
+                </div>
+
+                <div class="panel-footer">
+                    <form action="#">
+                        <input type="text" class="form-control input-lg" placeholder="输入聊天消息">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
