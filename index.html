@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<div id="app">
+<!--{{ deleteLater }}-->
     <div class="col-md-2 userlist">
         <div class="panel-heading">
-            <span class="glyphicon glyphicon-user"></span>在线（5）
+            <span class="glyphicon glyphicon-user"></span>&nbsp;({{ connectUsers.length }}) 人在线
         </div>
         <ul class="chat">
-            <li>user1</li>
-            <li>user2</li>
+            <li v-for="user in connectUsers">
+                {{ user }}
+            </li>
         </ul>
     </div>
     <div class="col-md-10">
@@ -53,5 +56,9 @@
             </div>
         </div>
     </div>
+</div>
+    <script  src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
+    <script src="client.js"></script>
 </body>
 </html>
