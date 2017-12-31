@@ -1,2 +1,5 @@
 # vue_ex
-somthing of vue 
+###simple chat room
+- socket.io
+- vue.js
+- nodejs
