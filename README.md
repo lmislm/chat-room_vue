@@ -1,5 +1,5 @@
 # vue_ex
-###simple chat room
+### simple chat room
 - socket.io
 - vue.js
 - nodejs
