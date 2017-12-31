@@ -53,7 +53,9 @@
                 <div class="panel-footer">
                     <form @submit.prevent="send">
                         <input v-model="message.text"
-                               v-on:keyup="userAreTyping" v-on:keyup.13="stoppedTyping('13')"
+                               v-on:keyup="userAreTyping"
+                               v-on:keyup.13="stoppedTyping('13')"
+                               v-on:keyup.8="stoppedTyping('8')"
                                type="text" class="form-control input-lg" placeholder="输入聊天消息">
                     </form>
                 </div>

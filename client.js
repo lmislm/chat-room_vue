@@ -79,7 +79,7 @@ new Vue({
             }
         },
         stoppedTyping:function (keycode) {
-            if(keycode == '13'){
+            if(keycode == '13' || (keycode == '8' && this.message.text == '')){
                 var index = this.areTyping.indexOf(socket.id);
                 if(index >= 0){
                     this.areTyping.splice(index,1);
