@@ -21,6 +21,6 @@
   "homepage": "https://github.com/lmislm/vue_ex#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "socket.io": "^2.0.4"
+    "socket.io": "^1.7.2"
   }
 }
