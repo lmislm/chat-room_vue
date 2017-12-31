@@ -57,6 +57,11 @@ new Vue({
             if(index >= 0){
                 this.connectUsers.splice(index,1);
             }
+            var infoMsg = {
+                "type":"info",
+                "msg":"用户 " + socketId + " 离开了聊天室"
+            }
+            this.messages.push(infoMsg);
         }.bind(this));
     },
     methods:{
