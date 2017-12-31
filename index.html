@@ -15,7 +15,7 @@
         </div>
         <ul class="chat">
             <li v-for="user in connectUsers">
-                {{ user }}
+                {{ user }}&nbsp;<span v-if="userIsTyping(user)" class="glyphicon glyphicon-pencil">..</span>
             </li>
         </ul>
     </div>
@@ -52,7 +52,9 @@
 
                 <div class="panel-footer">
                     <form @submit.prevent="send">
-                        <input v-model="message.text" type="text" class="form-control input-lg" placeholder="输入聊天消息">
+                        <input v-model="message.text"
+                               v-on:keyup="userAreTyping" v-on:keyup.13="stoppedTyping('13')"
+                               type="text" class="form-control input-lg" placeholder="输入聊天消息">
                     </form>
                 </div>
             </div>
@@ -62,6 +64,7 @@
     <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js"></script>
     <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
     <script src="client.js"></script>
 </body>
 </html>

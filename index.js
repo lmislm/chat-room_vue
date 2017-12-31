@@ -32,6 +32,14 @@ io.on('connection',function (socket) {
         io.emit('chat.message',message);
     });
 
+    //clients 发送 正在输入事件给server
+    socket.on('user typing',function (username) {
+        io.emit('user typing',username);
+    });
+    //client 发送‘停止正在输入’事件给server
+    socket.on('stopped typing',function (username) {
+        io.emit('stopped typing',username);
+    })
     socket.on('disconnect',function () {
         console.log('用户离开' + socket.id);
         //告诉所有clients用户已经离开
